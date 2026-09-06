@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Make a Donation | Center for Bridge Education</title>
+  <meta name="description" content="Support Center for Bridge Education via Venmo, Zelle, or Mail. CBE is a 501(c)(3) non-profit organization dedicated to youth bridge education in the San Francisco Bay Area. Tax-deductible donations.">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+  <!-- OpenGraph Meta -->
+  <meta property="og:title" content="Make a Donation | Center for Bridge Education">
+  <meta property="og:description" content="Support Center for Bridge Education via Venmo, Zelle, or Mail. 100% tax-deductible.">
+  <meta property="og:image" content="assets/images/CBE_logo.png">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="site-navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-group" aria-label="Center for Bridge Education">
+        <img src="assets/images/CBE_logo.png" alt="CBE Logo" width="36" height="36">
+        <span class="brand-title">Center for Bridge Education</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="navbar-nav">
+          <li><a href="index.html#saturday-street-taco" class="nav-link">Saturday Street Taco</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="newsletters.html" class="nav-link">Newsletters</a></li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="donate.html" class="nav-link active" aria-current="page">Donate</a></li>
+          <li><a href="about.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar-actions">
+        <a href="donate.html" class="btn-support">Support CBE</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header with Original Site Wording -->
+    <section class="page-header">
+      <div class="container page-header-inner">
+        <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-gray-600); display: block; margin-bottom: 0.5rem;">
+          Your Support Matters
+        </span>
+        <h1>Make a Donation</h1>
+        <p>
+          CBE is a 501(c)3 non-profit organization dedicated to provide and promote the learning and playing of bridge to youth and adults. Your donations and contributions are tax deductible.
+        </p>
+      </div>
+    </section>
+
+    <!-- Donation Methods -->
+    <section class="donate-container">
+      <div class="container">
+        <div class="donate-wrapper">
+
+          <!-- Option 1: Venmo -->
+          <div class="donate-section-block">
+            <h2 class="donate-section-title">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.5 3c.9 1.4 1.3 3 1.3 4.8 0 5.4-4.6 12.4-8.3 17.3H6.4L3.2 5.1l5.5-.5 1.8 13.5c1.8-2.9 4-7.3 4-10.4 0-1.7-.3-2.9-.8-3.7L19.5 3z"/>
+              </svg>
+              Venmo
+            </h2>
+            <p class="donate-section-desc">
+              You can make your donation directly from your Venmo account.
+            </p>
+
+            <div class="donate-card">
+              <div class="zelle-info-row">
+                <div>
+                  <div style="font-size: 0.8rem; text-transform: uppercase; font-weight: 600; color: var(--color-gray-500); margin-bottom: 0.25rem;">
+                    Venmo Recipient
+                  </div>
+                  <div class="zelle-email-text cbe-email-text" id="venmoEmail"></div>
+                </div>
+                <div style="display: flex; gap: 0.65rem; align-items: center;">
+                  <button type="button" class="btn-copy" id="copyVenmoBtn" onclick="copyVenmoEmail()">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span id="copyVenmoBtnText">Copy Email</span>
+                  </button>
+                  <a href="https://account.venmo.com/pay" target="_blank" rel="noopener noreferrer" class="btn-copy" style="color: #008cff; border-color: #008cff;">
+                    Open Venmo &nearr;
+                  </a>
+                </div>
+              </div>
+              <p style="font-size: 0.875rem; color: var(--color-gray-600); margin-top: 1rem; margin-bottom: 0;">
+                In the Venmo mobile app, tap "Pay/Request" and enter <strong class="cbe-email-text"></strong> (or search for <em>Center for Bridge Education</em>).
+              </p>
+            </div>
+          </div>
+
+          <!-- Option 2: Zelle -->
+          <div class="donate-section-block">
+            <h2 class="donate-section-title">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+              Zelle
+            </h2>
+            <p class="donate-section-desc">
+              We now also accept Zelle through our email <span class="cbe-email-text"></span>.
+            </p>
+
+            <div class="donate-card">
+              <div class="zelle-info-row">
+                <div>
+                  <div style="font-size: 0.8rem; text-transform: uppercase; font-weight: 600; color: var(--color-gray-500); margin-bottom: 0.25rem;">
+                    Recipient Email
+                  </div>
+                  <div class="zelle-email-text cbe-email-text" id="zelleEmail"></div>
+                </div>
+                <button type="button" class="btn-copy" id="copyZelleBtn" onclick="copyZelleEmail()">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span id="copyBtnText">Copy Email</span>
+                </button>
+              </div>
+              <p style="font-size: 0.875rem; color: var(--color-gray-600); margin-top: 1rem; margin-bottom: 0;">
+                Log in to your mobile banking app or Zelle, choose "Send Money", and enter <strong class="cbe-email-text"></strong> (Registered under: <em>Center for Bridge Education</em>). 100% of your donation directly supports CBE with zero processing fees.
+              </p>
+            </div>
+          </div>
+
+          <!-- Option 3: Mail Check -->
+          <div class="donate-section-block">
+            <h2 class="donate-section-title">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              Mail
+            </h2>
+            <p class="donate-section-desc">
+              You can mail us your donation. Make your check payable to “Center for Bridge Education” and mail to:
+            </p>
+
+            <div class="donate-card">
+              <div class="mail-address-box">
+                <strong>Center for Bridge Education</strong><br>
+                1254 26th Ave<br>
+                San Francisco, CA 94122
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Clean Minimalist Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/images/CBE_logo.png" alt="CBE Logo" width="24" height="24">
+        <span>&copy; 2007–2026 Center for Bridge Education • 501(c)(3) Non-Profit</span>
+      </div>
+
+      <div class="footer-contact">
+        <span>1254 26th Avenue, San Francisco, CA 94122</span>
+        <a href="about.html#contact" class="cbe-email-link">Contact Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/protect-email.js"></script>
+  <!-- Interactive JavaScript for Copy Email -->
+  <script>
+    function copyZelleEmail() {
+      window.copyCBEProtectedEmail('copyBtnText');
+    }
+
+    function copyVenmoEmail() {
+      window.copyCBEProtectedEmail('copyVenmoBtnText');
+    }
+  </script>
+
+</body>
+</html>
