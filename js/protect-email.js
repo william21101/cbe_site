@@ -12,7 +12,9 @@
   function renderProtectedEmails() {
     // 1. Interactive email links
     document.querySelectorAll('.cbe-email-link').forEach(el => {
-      el.textContent = email;
+      if (!el.dataset.keepLabel) {
+        el.textContent = email;
+      }
       el.href = 'mailto:' + email;
     });
 
@@ -22,10 +24,50 @@
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', renderProtectedEmails);
-  } else {
+  function initMobileMenu() {
+    const toggleBtn = document.querySelector('.mobile-menu-toggle');
+    const navList = document.querySelector('.navbar-nav');
+    if (!toggleBtn || !navList || toggleBtn.dataset.bound) return;
+    toggleBtn.dataset.bound = 'true';
+
+    const setMenuOpen = (isOpen) => {
+      navList.classList.toggle('open', isOpen);
+      toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    };
+
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = !navList.classList.contains('open');
+      setMenuOpen(isOpen);
+    });
+
+    navList.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => setMenuOpen(false));
+    });
+
+    document.addEventListener('click', (e) => {
+      if (navList.classList.contains('open') && !navList.contains(e.target) && !toggleBtn.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navList.classList.contains('open')) {
+        setMenuOpen(false);
+        toggleBtn.focus();
+      }
+    });
+  }
+
+  function initAll() {
     renderProtectedEmails();
+    initMobileMenu();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAll);
+  } else {
+    initAll();
   }
 
   // Global helper for copy buttons

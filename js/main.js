@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /* Sticky Header Blur & Shadow on Scroll                                      */
 /* -------------------------------------------------------------------------- */
 function initStickyHeader() {
-  const header = document.querySelector('.site-header');
+  const header = document.querySelector('.site-navbar, .site-header');
   if (!header) return;
 
   const handleScroll = () => {
@@ -33,28 +33,27 @@ function initStickyHeader() {
 /* Mobile Navigation Drawer                                                  */
 /* -------------------------------------------------------------------------- */
 function initMobileNav() {
-  const toggleBtn = document.querySelector('.mobile-toggle');
+  const toggleBtn = document.querySelector('.mobile-menu-toggle, .mobile-toggle');
   const closeBtn = document.querySelector('.mobile-close-btn');
-  const drawer = document.querySelector('.mobile-nav-drawer');
-  const drawerLinks = document.querySelectorAll('.mobile-nav-links a');
+  const drawer = document.querySelector('.navbar-nav, .mobile-nav-drawer');
+  const drawerLinks = document.querySelectorAll('.navbar-nav a, .mobile-nav-links a');
 
-  if (!toggleBtn || !drawer) return;
+  if (!toggleBtn || !drawer || toggleBtn.dataset.bound) return;
+  toggleBtn.dataset.bound = 'true';
 
-  const openDrawer = () => {
-    drawer.classList.add('open');
-    document.body.style.overflow = 'hidden';
+  const setOpen = (isOpen) => {
+    drawer.classList.toggle('open', isOpen);
+    toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   };
 
-  const closeDrawer = () => {
-    drawer.classList.remove('open');
-    document.body.style.overflow = '';
-  };
-
-  toggleBtn.addEventListener('click', openDrawer);
-  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setOpen(!drawer.classList.contains('open'));
+  });
+  if (closeBtn) closeBtn.addEventListener('click', () => setOpen(false));
 
   drawerLinks.forEach(link => {
-    link.addEventListener('click', closeDrawer);
+    link.addEventListener('click', () => setOpen(false));
   });
 }
 

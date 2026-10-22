@@ -9,8 +9,9 @@
 
   <!-- OpenGraph Meta -->
   <meta property="og:title" content="Make a Donation | Center for Bridge Education">
-  <meta property="og:description" content="Support Center for Bridge Education via Venmo, Zelle, or Mail. 100% tax-deductible.">
-  <meta property="og:image" content="assets/images/CBE_logo.png">
+  <meta property="og:description" content="Support Center for Bridge Education via Venmo, Zelle, or Mail. 100% tax-deductible (EIN: 30-0403219).">
+  <meta property="og:image" content="https://center4bridge.org/assets/images/CBE_logo.png">
+  <meta property="og:url" content="https://center4bridge.org/donate.html">
   <meta property="og:type" content="website">
 
   <!-- Google Fonts -->
@@ -44,6 +45,13 @@
 
       <div class="navbar-actions">
         <a href="donate.html" class="btn-support">Support CBE</a>
+        <button type="button" class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
       </div>
     </div>
   </header>
@@ -67,6 +75,17 @@
       <div class="container">
         <div class="donate-wrapper">
 
+          <!-- 501(c)(3) Tax-Deductible & Corporate Matching Info -->
+          <div class="tax-info-banner">
+            <div class="tax-info-main">
+              <strong>100% Tax-Deductible 501(c)(3) Non-Profit</strong><br>
+              Eligible for corporate gift matching and Donor-Advised Funds (DAFs). Need an official donation receipt? Email us at <a href="about.html#contact" class="cbe-email-link" style="font-weight: 600; color: var(--color-blue);"></a>.
+            </div>
+            <div class="tax-ein-badge">
+              EIN: 30-0403219
+            </div>
+          </div>
+
           <!-- Option 1: Venmo -->
           <div class="donate-section-block">
             <h2 class="donate-section-title">
@@ -83,11 +102,11 @@
               <div class="zelle-info-row">
                 <div>
                   <div style="font-size: 0.8rem; text-transform: uppercase; font-weight: 600; color: var(--color-gray-500); margin-bottom: 0.25rem;">
-                    Venmo Recipient
+                    Venmo Recipient Email / Search
                   </div>
                   <div class="zelle-email-text cbe-email-text" id="venmoEmail"></div>
                 </div>
-                <div style="display: flex; gap: 0.65rem; align-items: center;">
+                <div style="display: flex; gap: 0.65rem; align-items: center; flex-wrap: wrap;">
                   <button type="button" class="btn-copy" id="copyVenmoBtn" onclick="copyVenmoEmail()">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
@@ -101,7 +120,7 @@
                 </div>
               </div>
               <p style="font-size: 0.875rem; color: var(--color-gray-600); margin-top: 1rem; margin-bottom: 0;">
-                In the Venmo mobile app, tap "Pay/Request" and enter <strong class="cbe-email-text"></strong> (or search for <em>Center for Bridge Education</em>).
+                In the Venmo app, tap <strong>Pay/Request</strong> and paste <strong class="cbe-email-text"></strong> (or search Charities/Business for <em>Center for Bridge Education</em>). Please include your email in the payment note if you would like a tax receipt.
               </p>
             </div>
           </div>

@@ -2,8 +2,6 @@
    CENTER FOR BRIDGE EDUCATION (CBE) - SOPHISTICATED MINIMALIST DESIGN
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap');
-
 :root {
   --color-black: #0a0e17;
   --color-dark: #121826;
@@ -119,6 +117,12 @@ img {
   color: var(--color-black);
 }
 
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .navbar-actions .btn-support {
   display: inline-block;
   padding: 0.5rem 1.15rem;
@@ -128,10 +132,35 @@ img {
   color: var(--color-white);
   border-radius: 6px;
   transition: background 0.15s ease;
+  white-space: nowrap;
 }
 
 .navbar-actions .btn-support:hover {
   background: var(--color-gray-800);
+}
+
+.mobile-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-gray-200);
+  border-radius: 6px;
+  background: var(--color-white);
+  color: var(--color-black);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.mobile-menu-toggle:hover {
+  border-color: var(--color-gray-400);
+  background: var(--color-gray-50);
+}
+
+.mobile-menu-toggle svg {
+  width: 20px;
+  height: 20px;
 }
 
 /* ==========================================================================
@@ -235,6 +264,109 @@ img {
 
 .meta-value {
   color: var(--color-gray-600);
+}
+
+.meta-link {
+  color: var(--color-blue);
+  font-weight: 500;
+}
+
+.meta-link:hover {
+  text-decoration: underline;
+}
+
+.community-cta-box {
+  margin-top: 1.75rem;
+  padding: 1.15rem 1.35rem;
+  background: var(--color-gray-50);
+  border: 1px solid var(--color-gray-200);
+  border-radius: 8px;
+  font-size: 0.925rem;
+  color: var(--color-gray-600);
+  line-height: 1.55;
+}
+
+.community-cta-box strong {
+  color: var(--color-black);
+}
+
+.community-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+}
+
+.btn-primary-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: var(--color-black);
+  color: var(--color-white);
+  border-radius: 6px;
+  transition: background 0.15s ease;
+}
+
+.btn-primary-sm:hover {
+  background: var(--color-gray-800);
+}
+
+.btn-secondary-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: var(--color-white);
+  color: var(--color-dark);
+  border: 1px solid var(--color-gray-200);
+  border-radius: 6px;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.btn-secondary-sm:hover {
+  border-color: var(--color-gray-400);
+  background: var(--color-white);
+}
+
+/* Homepage Explore / Highlights Preview Section */
+.home-explore-section {
+  padding: 4.5rem 0 6rem;
+  background: var(--color-gray-50);
+  border-top: 1px solid var(--color-gray-200);
+}
+
+.home-explore-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.25rem;
+}
+
+.home-explore-header h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.65rem, 2.5vw, 2.1rem);
+  font-weight: 700;
+  color: var(--color-black);
+  letter-spacing: -0.02em;
+}
+
+.home-explore-header p {
+  font-size: 0.975rem;
+  color: var(--color-gray-600);
+  margin-top: 0.25rem;
+}
+
+.home-explore-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
 
 /* ==========================================================================
@@ -460,14 +592,56 @@ img {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
+
+  .home-explore-grid {
+    grid-template-columns: 1fr;
+  }
   
   .hero-pure {
     min-height: 65vh;
     padding-bottom: 2.5rem;
   }
 
+  .brand-title {
+    font-size: 0.95rem;
+  }
+
+  .mobile-menu-toggle {
+    display: inline-flex;
+  }
+
   .navbar-nav {
     display: none;
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-gray-200);
+    box-shadow: 0 12px 24px rgba(10, 14, 23, 0.08);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.5rem 1.5rem 1rem;
+    z-index: 99;
+  }
+
+  .navbar-nav.open {
+    display: flex;
+  }
+
+  .navbar-nav li {
+    border-bottom: 1px solid var(--color-gray-100);
+  }
+
+  .navbar-nav li:last-child {
+    border-bottom: none;
+  }
+
+  .navbar-nav .nav-link {
+    display: block;
+    padding: 0.85rem 0.25rem;
+    font-size: 1rem;
   }
 
   .latest-issue-card {
@@ -530,126 +704,43 @@ img {
   background: var(--color-white);
 }
 
-/* Amount selector pills */
-.amount-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr) 1.25fr;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
-}
-
-.amount-btn {
-  background: var(--color-gray-50);
+/* Tax-Deductible EIN & Receipt Info Banner */
+.tax-info-banner {
   border: 1px solid var(--color-gray-200);
-  padding: 0.75rem 0.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  font-family: var(--font-body);
-  color: var(--color-dark);
-  border-radius: 6px;
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.15s ease;
-}
-
-.amount-btn:hover {
-  border-color: var(--color-gray-400);
-  background: var(--color-white);
-}
-
-.amount-btn.active {
-  background: var(--color-black);
-  border-color: var(--color-black);
-  color: var(--color-white);
-}
-
-.custom-amount-wrap {
-  position: relative;
+  border-radius: 8px;
+  background: var(--color-gray-50);
+  padding: 1.35rem 1.65rem;
+  margin-bottom: 3rem;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
-.custom-amount-wrap span {
-  position: absolute;
-  left: 0.75rem;
-  font-weight: 600;
-  color: var(--color-gray-500);
+.tax-info-main {
+  font-size: 0.925rem;
+  color: var(--color-gray-600);
+  line-height: 1.55;
 }
 
-.custom-amount-input {
-  width: 100%;
-  padding: 0.75rem 0.5rem 0.75rem 1.75rem;
-  font-size: 0.95rem;
-  font-family: var(--font-body);
-  font-weight: 600;
-  border: 1px solid var(--color-gray-200);
-  border-radius: 6px;
-  background: var(--color-gray-50);
+.tax-info-main strong {
   color: var(--color-black);
 }
 
-.custom-amount-input:focus {
-  outline: none;
-  border-color: var(--color-black);
+.tax-ein-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.9rem;
   background: var(--color-white);
-}
-
-.paypal-action-area {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.btn-paypal-submit {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.85rem 1.85rem;
-  background: #0070ba;
-  color: #ffffff;
-  font-size: 0.95rem;
-  font-weight: 600;
-  font-family: var(--font-body);
-  border: none;
+  border: 1px solid var(--color-gray-200);
   border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.15s ease;
-  text-decoration: none;
-}
-
-.btn-paypal-submit:hover {
-  background: #005ea6;
-}
-
-.btn-venmo-submit {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.85rem 1.85rem;
-  background: #008cff;
-  color: #ffffff;
-  font-size: 0.95rem;
-  font-weight: 600;
-  font-family: var(--font-body);
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.15s ease;
-  text-decoration: none;
-}
-
-.btn-venmo-submit:hover {
-  background: #0074d9;
-}
-
-.paypal-action-note {
-  font-size: 0.85rem;
-  color: var(--color-gray-500);
-  width: 100%;
+  font-family: monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-black);
+  white-space: nowrap;
 }
 
 /* Zelle Info Display */
@@ -954,9 +1045,76 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
   margin-top: 4rem;
   padding-top: 2rem;
   border-top: 1px solid var(--color-gray-200);
+}
+
+/* Bridge Suit Symbols & Bidding Sequences */
+.bid-token {
+  display: inline-block;
+  font-weight: 600;
+  color: var(--color-black);
+  white-space: nowrap;
+}
+
+.suit-spade,
+.suit-club {
+  color: var(--color-black);
+  font-style: normal;
+}
+
+.suit-heart,
+.suit-diamond {
+  color: #dc2626;
+  font-style: normal;
+}
+
+.bidding-sequence-box {
+  background: var(--color-gray-50);
+  border: 1px solid var(--color-gray-200);
+  border-left: 3px solid var(--color-blue);
+  border-radius: 6px;
+  padding: 0.85rem 1.25rem;
+  margin: 1rem 0 1.25rem;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-black);
+}
+
+.bidding-table {
+  width: 100%;
+  max-width: 520px;
+  border-collapse: collapse;
+  margin: 1.25rem 0 1.75rem;
+  font-size: 0.95rem;
+  border: 1px solid var(--color-gray-200);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.bidding-table th,
+.bidding-table td {
+  padding: 0.6rem 0.9rem;
+  text-align: center;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.bidding-table th {
+  background: var(--color-gray-50);
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-gray-600);
+}
+
+.bidding-table tr:last-child td {
+  border-bottom: none;
 }
 
 /* ==========================================================================
@@ -988,36 +1146,6 @@ img {
   line-height: 1.75;
   color: var(--color-dark);
   margin-bottom: 1.5rem;
-}
-
-.mission-objectives-list {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
-}
-
-.mission-item {
-  border: 1px solid var(--color-gray-200);
-  border-radius: 8px;
-  background: var(--color-white);
-  padding: 1.5rem 1.75rem;
-}
-
-.mission-item h3 {
-  font-family: var(--font-heading);
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--color-black);
-  margin-bottom: 0.5rem;
-}
-
-.mission-item p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--color-gray-600);
-  margin: 0;
 }
 
 /* Board of Directors Grid */
@@ -1069,144 +1197,18 @@ img {
 }
 
 .board-role {
-  font-size: 0.825rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--color-blue);
+  margin-bottom: 0.5rem;
 }
 
-/* ==========================================================================
-   MINIMALIST CONTACT PAGE STYLING
-   ========================================================================== */
-.contact-simple-section {
-  padding: 3rem 0 6rem;
-}
-
-.contact-simple-card {
-  max-width: 580px;
-  margin: 0 auto;
-  background: var(--color-white);
-  border: 1px solid var(--color-gray-200);
-  border-radius: 12px;
-  padding: 3rem 2.5rem;
-  text-align: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-}
-
-.contact-simple-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.85rem;
-  background: var(--color-gray-100);
-  color: var(--color-gray-800);
-  border-radius: 999px;
-  font-size: 0.775rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 1.75rem;
-}
-
-.contact-email-wrapper {
-  margin: 1.25rem 0 0.75rem;
-}
-
-.contact-email-link {
-  font-family: var(--font-heading);
-  font-size: 1.85rem;
-  font-weight: 700;
-  color: var(--color-black);
-  text-decoration: none;
-  transition: color 0.15s ease;
-  word-break: break-all;
-  display: inline-block;
-}
-
-.contact-email-link:hover {
-  color: var(--color-blue);
-}
-
-.contact-simple-desc {
-  font-size: 0.95rem;
-  color: var(--color-gray-600);
-  margin-bottom: 2rem;
-  line-height: 1.6;
-}
-
-.contact-simple-actions {
-  display: flex;
-  justify-content: center;
-  gap: 0.85rem;
-  margin-bottom: 2.25rem;
-  flex-wrap: wrap;
-}
-
-.btn-email-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--color-black);
-  color: var(--color-white);
-  padding: 0.75rem 1.6rem;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: background 0.15s ease, transform 0.15s ease;
-}
-
-.btn-email-primary:hover {
-  background: var(--color-gray-800);
-  transform: translateY(-1px);
-}
-
-.btn-email-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--color-white);
-  color: var(--color-dark);
-  border: 1px solid var(--color-gray-200);
-  padding: 0.75rem 1.4rem;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease;
-}
-
-.btn-email-secondary:hover {
-  border-color: var(--color-gray-400);
-  background: var(--color-gray-50);
-}
-
-.contact-simple-footer-meta {
-  padding-top: 1.75rem;
-  border-top: 1px solid var(--color-gray-200);
-  font-size: 0.875rem;
-  color: var(--color-gray-500);
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+.board-bio {
+  font-size: 0.85rem;
   line-height: 1.5;
-  text-align: center;
-}
-
-@media (max-width: 600px) {
-  .contact-simple-card {
-    padding: 2.25rem 1.5rem;
-  }
-  .contact-email-link {
-    font-size: 1.4rem;
-  }
-  .contact-simple-actions {
-    flex-direction: column;
-  }
-  .btn-email-primary, .btn-email-secondary {
-    width: 100%;
-    justify-content: center;
-  }
+  color: var(--color-gray-600);
 }
 
 /* Minimalist About Page Contact Block */
