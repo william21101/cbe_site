@@ -79,11 +79,12 @@
           <div class="tax-info-banner">
             <div class="tax-info-main">
               <strong>100% Tax-Deductible 501(c)(3) Non-Profit</strong><br>
-              Eligible for corporate gift matching and Donor-Advised Funds (DAFs). Need an official donation receipt? Email us at <a href="about.html#contact" class="cbe-email-link" style="font-weight: 600; color: var(--color-blue);"></a>.
+              Eligible for employer gift matching (Benevity, CyberGrants, etc.) and Donor-Advised Funds. Need a tax receipt? Email <a href="about.html#contact" class="cbe-email-link" style="font-weight: 600; color: var(--color-blue);"></a>.
             </div>
-            <div class="tax-ein-badge">
-              EIN: 30-0403219
-            </div>
+            <button type="button" class="tax-ein-badge" id="headerEinBadge" onclick="copyMatchingEIN('headerEinText')" title="Click to copy EIN" style="cursor: pointer; border: 1px solid var(--color-gray-200); background: var(--color-white);">
+              <span>EIN: 30-0403219</span>
+              <span id="headerEinText" style="font-size: 0.75rem; color: var(--color-gray-500); font-family: var(--font-body); font-weight: 600; margin-left: 0.35rem;">Copy</span>
+            </button>
           </div>
 
           <!-- Option 1: Venmo -->
@@ -95,33 +96,44 @@
               Venmo
             </h2>
             <p class="donate-section-desc">
-              You can make your donation directly from your Venmo account.
+              Make a contribution directly from your Venmo app or scan our QR code below.
             </p>
 
             <div class="donate-card">
-              <div class="zelle-info-row">
-                <div>
-                  <div style="font-size: 0.8rem; text-transform: uppercase; font-weight: 600; color: var(--color-gray-500); margin-bottom: 0.25rem;">
-                    Venmo Recipient Email / Search
+              <div class="donate-venmo-layout">
+                <div class="donate-venmo-details">
+                  <div class="zelle-info-row">
+                    <div>
+                      <div style="font-size: 0.8rem; text-transform: uppercase; font-weight: 600; color: var(--color-gray-500); margin-bottom: 0.25rem;">
+                        Venmo Recipient Email / Search
+                      </div>
+                      <div class="zelle-email-text cbe-email-text" id="venmoEmail"></div>
+                    </div>
+                    <div style="display: flex; gap: 0.65rem; align-items: center; flex-wrap: wrap;">
+                      <button type="button" class="btn-copy" id="copyVenmoBtn" onclick="copyVenmoEmail()">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        <span id="copyVenmoBtnText">Copy Email</span>
+                      </button>
+                      <a href="https://account.venmo.com/pay?recipients=CBESFmain@gmail.com" target="_blank" rel="noopener noreferrer" class="btn-copy" style="color: #008cff; border-color: #008cff;">
+                        Open Venmo &nearr;
+                      </a>
+                    </div>
                   </div>
-                  <div class="zelle-email-text cbe-email-text" id="venmoEmail"></div>
+                  <p style="font-size: 0.875rem; color: var(--color-gray-600); margin-top: 1rem; margin-bottom: 0; line-height: 1.55;">
+                    In the Venmo app, tap <strong>Pay/Request</strong> and paste <strong class="cbe-email-text"></strong> (or search Charities &amp; Businesses for <em>Center for Bridge Education</em>). Please include your email in the payment note if you would like an official tax receipt.
+                  </p>
                 </div>
-                <div style="display: flex; gap: 0.65rem; align-items: center; flex-wrap: wrap;">
-                  <button type="button" class="btn-copy" id="copyVenmoBtn" onclick="copyVenmoEmail()">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                    </svg>
-                    <span id="copyVenmoBtnText">Copy Email</span>
-                  </button>
-                  <a href="https://account.venmo.com/pay" target="_blank" rel="noopener noreferrer" class="btn-copy" style="color: #008cff; border-color: #008cff;">
-                    Open Venmo &nearr;
-                  </a>
+
+                <div class="donate-qr-wrapper">
+                  <div class="donate-qr-card">
+                    <img src="assets/images/venmo-qr.svg" alt="Venmo QR Code for Center for Bridge Education" width="124" height="124">
+                    <span class="donate-qr-label">Scan with phone camera to open Venmo</span>
+                  </div>
                 </div>
               </div>
-              <p style="font-size: 0.875rem; color: var(--color-gray-600); margin-top: 1rem; margin-bottom: 0;">
-                In the Venmo app, tap <strong>Pay/Request</strong> and paste <strong class="cbe-email-text"></strong> (or search Charities/Business for <em>Center for Bridge Education</em>). Please include your email in the payment note if you would like a tax receipt.
-              </p>
             </div>
           </div>
 
@@ -134,7 +146,7 @@
               Zelle
             </h2>
             <p class="donate-section-desc">
-              We now also accept Zelle through our email <span class="cbe-email-text"></span>.
+              We accept Zelle through our registered non-profit email with zero transaction fees.
             </p>
 
             <div class="donate-card">
@@ -153,7 +165,7 @@
                   <span id="copyBtnText">Copy Email</span>
                 </button>
               </div>
-              <p style="font-size: 0.875rem; color: var(--color-gray-600); margin-top: 1rem; margin-bottom: 0;">
+              <p style="font-size: 0.875rem; color: var(--color-gray-600); margin-top: 1rem; margin-bottom: 0; line-height: 1.55;">
                 Log in to your mobile banking app or Zelle, choose "Send Money", and enter <strong class="cbe-email-text"></strong> (Registered under: <em>Center for Bridge Education</em>). 100% of your donation directly supports CBE with zero processing fees.
               </p>
             </div>
@@ -166,10 +178,10 @@
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
-              Mail
+              Mail Check
             </h2>
             <p class="donate-section-desc">
-              You can mail us your donation. Make your check payable to “Center for Bridge Education” and mail to:
+              You can mail us a traditional check. Make your check payable to <strong>“Center for Bridge Education”</strong> and send to:
             </p>
 
             <div class="donate-card">
@@ -201,7 +213,7 @@
   </footer>
 
   <script src="js/protect-email.js"></script>
-  <!-- Interactive JavaScript for Copy Email -->
+  <!-- Interactive JavaScript for Copy Email & EIN -->
   <script>
     function copyZelleEmail() {
       window.copyCBEProtectedEmail('copyBtnText');
@@ -209,6 +221,20 @@
 
     function copyVenmoEmail() {
       window.copyCBEProtectedEmail('copyVenmoBtnText');
+    }
+
+    function copyMatchingEIN(elementId) {
+      const targetId = elementId || 'copyMatchingEinText';
+      navigator.clipboard.writeText('30-0403219').then(() => {
+        const textEl = document.getElementById(targetId);
+        if (textEl) {
+          const original = textEl.textContent;
+          textEl.textContent = 'Copied!';
+          setTimeout(() => {
+            textEl.textContent = original;
+          }, 2000);
+        }
+      });
     }
   </script>
 
