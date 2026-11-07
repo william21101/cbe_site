@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendar & Events | Center for Bridge Education</title>
+  <meta name="description" content="View upcoming Saturday Street Taco bridge sessions, Monday Quicktricks games, youth classes, and Bay Area bridge tournaments hosted by Center for Bridge Education.">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+  <!-- OpenGraph Meta -->
+  <meta property="og:title" content="Calendar & Events | Center for Bridge Education">
+  <meta property="og:description" content="Upcoming Saturday Street Taco bridge sessions, youth classes, and Bay Area bridge events.">
+  <meta property="og:image" content="https://center4bridge.org/assets/images/CBE_logo.png">
+  <meta property="og:url" content="https://center4bridge.org/calendar.html">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="site-navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="brand-group" aria-label="Center for Bridge Education">
+        <img src="assets/images/CBE_logo.png" alt="CBE Logo" width="36" height="36">
+        <span class="brand-title">Center for Bridge Education</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="navbar-nav">
+          <li><a href="index.html#saturday-street-taco" class="nav-link">Saturday Street Taco</a></li>
+          <li><a href="calendar.html" class="nav-link active" aria-current="page">Calendar</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="newsletters.html" class="nav-link">Newsletters</a></li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="donate.html" class="nav-link">Donate</a></li>
+          <li><a href="about.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar-actions">
+        <a href="donate.html" class="btn-support">Support CBE</a>
+        <button type="button" class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container page-header-inner">
+        <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-gray-600); display: block; margin-bottom: 0.5rem;">
+          Schedule &amp; Events
+        </span>
+        <h1>CBE Calendar</h1>
+        <p>
+          Weekly Saturday Street Taco sessions, Monday Quicktricks games, and Bay Area bridge tournaments.
+        </p>
+      </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section class="calendar-container">
+      <div class="container">
+        <div class="calendar-toolbar">
+          <div class="calendar-view-tabs" role="tablist" aria-label="Calendar view mode">
+            <button type="button" class="calendar-tab active" data-mode="MONTH" role="tab" aria-selected="true">Month</button>
+            <button type="button" class="calendar-tab" data-mode="WEEK" role="tab" aria-selected="false">Week</button>
+            <button type="button" class="calendar-tab" data-mode="AGENDA" role="tab" aria-selected="false">Schedule</button>
+          </div>
+
+          <div class="calendar-actions">
+            <a href="https://calendar.google.com/calendar/u/0/r?cid=cbesfmain%40gmail.com" target="_blank" rel="noopener noreferrer" class="btn-secondary-sm">
+              + Add to Google Calendar &nearr;
+            </a>
+          </div>
+        </div>
+
+        <div class="calendar-frame-card">
+          <iframe
+            id="cbe-calendar-iframe"
+            title="Center for Bridge Education Google Calendar"
+            src="https://calendar.google.com/calendar/embed?src=cbesfmain%40gmail.com&amp;ctz=America%2FLos_Angeles&amp;wkst=1&amp;bgcolor=%23ffffff&amp;showTitle=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;mode=MONTH"
+            width="100%"
+            height="720"
+            frameborder="0"
+            scrolling="no">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Minimalist Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/images/CBE_logo.png" alt="CBE Logo" width="24" height="24">
+        <span>&copy; 2007–2026 Center for Bridge Education • 501(c)(3) Non-Profit</span>
+      </div>
+
+      <div class="footer-contact">
+        <a href="about.html#contact" class="cbe-email-link">Contact Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/protect-email.js"></script>
+  <script>
+    (function () {
+      var iframe = document.getElementById('cbe-calendar-iframe');
+      var tabs = document.querySelectorAll('.calendar-tab');
+      var baseUrl = 'https://calendar.google.com/calendar/embed?src=cbesfmain%40gmail.com&ctz=America%2FLos_Angeles&wkst=1&bgcolor=%23ffffff&showTitle=0&showPrint=0&showTabs=0&showCalendars=0&mode=';
+
+      // Default to AGENDA view on narrow mobile screens for readability
+      if (window.innerWidth <= 640 && iframe) {
+        iframe.src = baseUrl + 'AGENDA';
+        tabs.forEach(function (t) {
+          var isAgenda = t.getAttribute('data-mode') === 'AGENDA';
+          t.classList.toggle('active', isAgenda);
+          t.setAttribute('aria-selected', isAgenda ? 'true' : 'false');
+        });
+      }
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var mode = tab.getAttribute('data-mode');
+          if (iframe && mode) {
+            iframe.src = baseUrl + mode;
+          }
+          tabs.forEach(function (t) {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
