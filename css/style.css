@@ -111,8 +111,12 @@ img {
 .navbar-nav {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.65rem;
   list-style: none;
+}
+
+.navbar-nav .nav-mobile-only {
+  display: none;
 }
 
 .nav-link {
@@ -631,6 +635,10 @@ img {
     border-bottom: 1px solid var(--color-gray-100);
   }
 
+  .navbar-nav .nav-mobile-only {
+    display: block;
+  }
+
   .navbar-nav li:last-child {
     border-bottom: none;
   }
@@ -1079,6 +1087,12 @@ img {
   display: block;
 }
 
+.article-body a {
+  color: var(--color-blue);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 .article-body strong {
   color: var(--color-black);
 }
@@ -1102,6 +1116,11 @@ img {
   margin-top: 4rem;
   padding-top: 2rem;
   border-top: 1px solid var(--color-gray-200);
+}
+
+.article-footer-nav .issue-link {
+  white-space: normal;
+  flex-shrink: 1;
 }
 
 /* Bridge Suit Symbols & Bidding Sequences */
@@ -1467,4 +1486,66 @@ img {
   .calendar-frame-card iframe {
     height: 560px;
   }
+
+  .article-footer-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+    margin-top: 2.5rem;
+  }
+}
+
+/* ==========================================================================
+   404 NOT FOUND PAGE STYLES
+   ========================================================================== */
+.not-found-section {
+  padding: 6rem 0 7rem;
+  min-height: calc(100vh - 170px);
+  display: flex;
+  align-items: center;
+}
+
+.not-found-inner {
+  max-width: 540px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.not-found-code {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-blue);
+  background: var(--color-gray-50);
+  border: 1px solid var(--color-gray-200);
+  border-radius: 20px;
+  padding: 0.3rem 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.not-found-inner h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--color-black);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.85rem;
+}
+
+.not-found-inner p {
+  font-size: 1.05rem;
+  color: var(--color-gray-600);
+  line-height: 1.65;
+  margin-bottom: 2rem;
+}
+
+.not-found-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
