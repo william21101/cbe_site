@@ -6,11 +6,13 @@
  */
 (function() {
   const user = atob('Q0JFU0ZtYWlu'); // CBESFmain
+  const paymentUser = atob('Y2hyaXNjaGVuLmNiZQ=='); // chrischen.cbe
   const domain = atob('Z21haWwuY29t'); // gmail.com
   const email = user + '@' + domain;
+  const paymentEmail = paymentUser + '@' + domain;
 
   function renderProtectedEmails() {
-    // 1. Interactive email links
+    // 1. Interactive general contact email links
     document.querySelectorAll('.cbe-email-link').forEach(el => {
       if (!el.dataset.keepLabel) {
         el.textContent = email;
@@ -18,14 +20,14 @@
       el.href = 'mailto:' + email;
     });
 
-    // 2. Text-only elements (e.g. Venmo/Zelle recipient boxes)
+    // 2. Venmo & Zelle recipient email text elements
     document.querySelectorAll('.cbe-email-text').forEach(el => {
-      el.textContent = email;
+      el.textContent = paymentEmail;
     });
 
     // 3. Venmo payment links
     document.querySelectorAll('.cbe-venmo-link').forEach(el => {
-      el.href = 'https://account.venmo.com/pay?recipients=' + encodeURIComponent(email);
+      el.href = 'https://account.venmo.com/pay?recipients=' + encodeURIComponent(paymentEmail);
     });
   }
 
@@ -79,9 +81,9 @@
     initAll();
   }
 
-  // Global helper for copy buttons
-  window.copyCBEProtectedEmail = function(buttonTextElementId) {
-    navigator.clipboard.writeText(email).then(() => {
+  // Global helpers for copy buttons
+  function copyTextWithFeedback(text, buttonTextElementId) {
+    navigator.clipboard.writeText(text).then(() => {
       if (buttonTextElementId) {
         const btnText = document.getElementById(buttonTextElementId);
         if (btnText) {
@@ -93,5 +95,13 @@
         }
       }
     });
+  }
+
+  window.copyCBEProtectedEmail = function(buttonTextElementId) {
+    copyTextWithFeedback(email, buttonTextElementId);
+  };
+
+  window.copyCBEPaymentEmail = function(buttonTextElementId) {
+    copyTextWithFeedback(paymentEmail, buttonTextElementId);
   };
 })();
