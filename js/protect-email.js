@@ -22,6 +22,11 @@
     document.querySelectorAll('.cbe-email-text').forEach(el => {
       el.textContent = email;
     });
+
+    // 3. Venmo payment links
+    document.querySelectorAll('.cbe-venmo-link').forEach(el => {
+      el.href = 'https://account.venmo.com/pay?recipients=' + encodeURIComponent(email);
+    });
   }
 
   function initMobileMenu() {
